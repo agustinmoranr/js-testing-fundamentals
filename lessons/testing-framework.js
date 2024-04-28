@@ -16,20 +16,31 @@
  * Execute: Use `node lessons/testing-framework.js` to run the test.
  */
 
-const {sum, subtract} = require('../math')
+const { sum, subtract } = require('../math');
+const { expect } = require('../lib');
 
 test('sum adds numbers', () => {
-  const result = sum(3, 7)
-  const expected = 10
-  expect(result).toBe(expected)
-})
+	const result = sum(3, 7);
+	const expected = 10;
+	expect(result).toBe(expected);
+});
 
 test('subtract subtracts numbers', () => {
-  const result = subtract(7, 3)
-  const expected = 4
-  expect(result).toBe(expected)
-})
+	const result = subtract(7, 3);
+	const expected = 4;
+	expect(result).toBe(expected);
+});
 
 /**
  * Answer: Checkout the main branch for the answer.
  */
+
+function test(message = '', callback) {
+	try {
+		callback();
+		console.log('✅ ', message);
+	} catch (error) {
+		console.error('🚨 ', message);
+		console.error(error);
+	}
+}
