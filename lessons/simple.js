@@ -11,9 +11,31 @@
  * Execute: Use `node lessons/simple.js` to run the test.
  */
 
-const {sum, subtract} = require('../math')
+const { sum, subtract } = require('../math');
 
-let result, expected
+let result, expected;
+
+result = sum(5, 2);
+expected = 7;
+
+if (expected === result) {
+	console.log('✅ sum() function works as expected.');
+} else {
+	throw new Error(
+		`"sum() function is not working correctly expected: ${expected}, found: ${result}`,
+	);
+}
+
+result = subtract(6, 2);
+expected = 4;
+
+if (expected === result) {
+	console.log('✅ subtract() function works as expected.');
+} else {
+	throw new Error(
+		`"subtract() function is not working correctly expected: ${expected}, found: ${result}`,
+	);
+}
 
 /**
  * Hint: there's no magic, just the most straightforward conditional statement.
