@@ -15,20 +15,31 @@
  * Execute: Use `node lessons/async-await.js` to run the test.
  */
 
-const {sumAsync, subtractAsync} = require('../math')
+const { sumAsync, subtractAsync } = require('../math');
+const { expect } = require('../lib');
 
-test('sumAsync adds numbers asynchronously', () => {
-  const result = sumAsync(3, 7)
-  const expected = 10
-  expect(result).toBe(expected)
-})
+test('sumAsync adds numbers asynchronously', async () => {
+	const result = await sumAsync(3, 7);
+	const expected = 10;
+	expect(result).toBe(expected);
+});
 
-test('subtractAsync subtracts numbers asynchronously', () => {
-  const result = subtractAsync(7, 3)
-  const expected = 4
-  expect(result).toBe(expected)
-})
+test('subtractAsync subtracts numbers asynchronously', async () => {
+	const result = await subtractAsync(7, 3);
+	const expected = 4;
+	expect(result).toBe(expected);
+});
 
 /**
  * Answer: Checkout the main branch for the answer.
  */
+
+async function test(message, callback) {
+	try {
+		await callback();
+		console.log('✅ ', message);
+	} catch (error) {
+		console.error('🚨 ', message);
+		console.error(error);
+	}
+}
